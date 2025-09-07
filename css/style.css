@@ -128,7 +128,7 @@ body{
 }
 
 .student-photo-wrapper {
-  position: fixed;
+  position: absolute;
   top: 40px;
   right: 550px; 
   text-align: center;
