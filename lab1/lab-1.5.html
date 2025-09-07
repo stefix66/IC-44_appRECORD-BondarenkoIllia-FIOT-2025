@@ -1,0 +1,85 @@
+<div class="lab-content">
+  <h2>HTML-код форми</h2>
+
+
+
+   <section class="form-theory">
+    <h3>Атрибути HTML-форм</h3>
+    <p>Форма (<code>&lt;form&gt;</code>) у HTML має ряд важливих атрибутів:</p>
+    <ul>
+      <li><code>action</code> — адреса сервера або скрипта, куди надсилаються дані при відправленні форми.</li>
+      <li><code>method</code> — метод HTTP, який використовується для передачі даних. Основні значення:
+        <ul>
+          <li><code>GET</code> — дані додаються у URL (небезпечно для паролів, обмежено розміром).</li>
+          <li><code>POST</code> — дані передаються у тілі запиту (безпечніше та без обмежень на обсяг).</li>
+        </ul>
+      </li>
+      <li><code>id</code> — унікальний ідентифікатор форми, зручний для JavaScript.</li>
+      <li><code>class</code> — клас форми для застосування стилів CSS.</li>
+      <li><code>name</code> — ім’я форми, може використовуватися для доступу через JS.</li>
+      <li><code>novalidate</code> — забороняє стандартну перевірку HTML5 при відправці.</li>
+      <li><code>autocomplete</code> — включає або вимикає автозаповнення браузером (<code>on</code> / <code>off</code>).</li>
+    </ul>
+
+    <p>Кожен елемент форми (<code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code>) також має атрибути:</p>
+    <ul>
+      <li><code>type</code> — тип поля (<code>text</code>, <code>tel</code>, <code>checkbox</code>, <code>email</code> тощо).</li>
+      <li><code>name</code> — ім’я, яке використовується як ключ при відправці даних на сервер.</li>
+      <li><code>value</code> — значення, яке буде передано при відправленні.</li>
+      <li><code>placeholder</code> — підказка всередині поля.</li>
+      <li><code>required</code> — робить поле обов’язковим для заповнення.</li>
+      <li><code>checked</code> — для чекбоксів/радіо, позначає, що елемент обраний за замовчуванням.</li>
+      <li><code>rows</code> і <code>cols</code> — для <code>&lt;textarea&gt;</code>, задають розміри поля.</li>
+    </ul>
+
+    <p>Ці атрибути дозволяють налаштувати форму під потреби користувача та забезпечити коректну обробку даних.</p>
+  </section>
+</div>
+
+  <pre><code>
+&lt;section id="order" class="order-section"&gt;
+  &lt;h2 class="section-title"&gt;Швидке замовлення&lt;/h2&gt;
+  &lt;form id="orderForm" class="form"&gt;
+
+    &lt;fieldset&gt;
+      &lt;legend&gt;Контактна інформація&lt;/legend&gt;
+      &lt;label&gt;
+        Ім'я:
+        &lt;input type="text" name="name" required /&gt;
+      &lt;/label&gt;
+      &lt;label&gt;
+        Телефон:
+        &lt;input type="tel" name="phone" required placeholder="+380 67 123 45 67" /&gt;
+      &lt;/label&gt;
+      &lt;label&gt;
+        Адреса доставки:
+        &lt;input type="text" name="address" required /&gt;
+      &lt;/label&gt;
+    &lt;/fieldset&gt;
+
+    &lt;fieldset&gt;
+      &lt;legend&gt;Ваше замовлення&lt;/legend&gt;
+      &lt;p&gt;Оберіть піци:&lt;/p&gt;
+      &lt;label&gt;&lt;input type="checkbox" name="items" value="Маргарита — ₴199" /&gt; 🍕 Маргарита&lt;/label&gt;
+      &lt;label&gt;&lt;input type="checkbox" name="items" value="Пепероні — ₴249" /&gt; 🍕 Пепероні&lt;/label&gt;
+      &lt;label&gt;&lt;input type="checkbox" name="items" value="Bella Special — ₴329" /&gt; 🍕 Bella Special&lt;/label&gt;
+
+      &lt;label&gt;
+        Коментар для кухні:
+        &lt;textarea name="note" rows="3" placeholder="Приклад: без цибулі"&gt;&lt;/textarea&gt;
+      &lt;/label&gt;
+    &lt;/fieldset&gt;
+
+    &lt;button type="submit" class="btn"&gt;Надіслати замовлення&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;div id="orderResult" aria-live="polite"&gt;&lt;/div&gt;
+&lt;/section&gt;
+  </code></pre>
+
+  <!-- Фото форми -->
+  <div class="form-photo">
+    <p>Фото форми замовлення:
+      <img src="img/form.jpg" alt="Фото форми замовлення BellaPizza" style="max-width:100%;height:auto;" />
+    </p>
+  </div>
+</div>
