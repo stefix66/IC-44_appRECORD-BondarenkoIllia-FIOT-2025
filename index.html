@@ -1,217 +1,157 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title>Звіт з лабораторних робіт</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f8f8f8;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .lab-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .lab-buttons button {
-            padding: 10px 15px;
-            border: 1px solid #ccc;
-            background: #fff;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-        .lab-buttons button.active {
-            background: yellow;
-            font-weight: bold;
-        }
-        .sidebar {
-            width: 20%;
-            float: left;
-        }
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-        .sidebar li {
-            margin: 10px 0;
-            padding: 8px;
-            background: #eee;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-        }
-        .sidebar li:hover {
-            background: #ddd;
-        }
-        .content {
-            width: 75%;
-            float: right;
-            min-height: 400px;
-            border: 1px solid #aaa;
-            background: #fff;
-            padding: 20px;
-        }
-        .student-photo-container {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            width: 170px;
-            text-align: center;
-            z-index: 1000;
-            background: #fff;
-            padding: 5px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .student-photo-container img {
-            width: 150px;
-            height: auto;
-            border: 2px solid #aaa;
-            border-radius: 8px;
-            display: block;
-            margin: 0 auto;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-        .student-photo-container span {
-            display: block;
-            font-size: 12px;
-            color: #333;
-            margin-top: 4px;
-            font-weight: bold;
-        }
-        .clearfix::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-        pre {
-            background: #f0f0f0;
-            padding: 10px;
-            border-radius: 8px;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Звіти з лабораторних робіт</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<header class="site-header">
+  <div class="container">
+    <div class="header-top">
+      <h1>КИЇВСЬКИЙ ПОЛІТЕХНІЧНИЙ ІНСТИТУТ</h1>
+      <p class="subject">ЗВІТИ З ПРАКТИЧНИХ РОБІТ</p>
+      <p class="discipline">з дисципліни <strong>«Програмування інтернет-застосувань»</strong></p>
+      <p class="student">Виконавець: студент групи ІС-44 Бондаренко Ілля Миколайович</p>
 
-    <div class="student-photo-container">
-        <img src="img/student.jpg" alt="Фото студента">
-        <span>Фото студента</span>
+      <div class="student-photo-wrapper">
+        <span class="student-photo-label">Фото студента</span>
+        <img src="img/student.jpg" alt="Фото студента" class="student-photo">
+      </div>
     </div>
 
-    <div class="header">
-        <h2>КИЇВСЬКИЙ ПОЛІТЕХНІЧНИЙ ІНСТИТУТ</h2>
-        <h1>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ</h1>
-        <h2>З дисципліни «Інтернет-технології та проєктування WEB-застосувань»</h2>
-        <p>Виконавець: студент групи ІС-44 — Бондаренко Ілля Миколайович</p>
-    </div>
+    <nav class="labs-menu" role="navigation" aria-label="Лабораторні роботи">
+      <a href="#" data-lab="lab1" class="lab-link">Лабораторна робота №1</a>
+      <a href="#" data-lab="lab2" class="lab-link">Лабораторна робота №2</a>
+      <a href="#" data-lab="lab3" class="lab-link">Лабораторна робота №3</a>
+      <a href="#" data-lab="lab4" class="lab-link">Лабораторна робота №4</a>
+      <a href="#" data-lab="lab5" class="lab-link">Лабораторна робота №5</a>
+      <a href="#" data-lab="lab6-7" class="lab-link">Лабораторна робота №6-7</a>
+      <a href="#" data-lab="lab8-9" class="lab-link">Лабораторна робота №8-9</a>
+    </nav>
+  </div>
+</header>
 
-    <div class="lab-buttons">
-        <button class="active" onclick="loadLab(1)">Лабораторна робота №1</button>
-        <button onclick="loadLab(2)">Лабораторна робота №2</button>
-        <button onclick="loadLab(3)">Лабораторна робота №3</button>
-        <button onclick="loadLab(4)">Лабораторна робота №4</button>
-        <button onclick="loadLab(5)">Лабораторна робота №5</button>
-        <button onclick="loadLab(6)">Лабораторна робота №6</button>
-        <button onclick="loadLab(7)">Лабораторна робота №7</button>
-        <button onclick="loadLab(8)">Лабораторна робота №8</button>
-        <button onclick="loadLab(9)">Лабораторна робота №9</button>
-    </div>
+<main class="main container">
+  <aside id="sidebar" class="sidebar" aria-label="Пункти лабораторної">
+    <div class="sidebar-empty">Оберіть лабораторну роботу</div>
+  </aside>
+  <section id="content" class="content" tabindex="0">
+    <div class="content-empty">Вміст буде завантажуватись сюди</div>
+  </section>
+</main>
 
-    <div class="clearfix">
-        <div class="sidebar">
-            <ul>
-                <li onclick="loadSection('theme')">Тема, мета, місце розташування сайту, звіту</li>
-                <li onclick="loadSection('description')">Опис предметного середовища. Бізнес-логіка</li>
-                <li onclick="loadSection('structure')">Структура документа</li>
-                <li onclick="loadSection('table')">HTML-код таблиці</li>
-                <li onclick="loadSection('image')">HTML-код зображення</li>
-                <li onclick="loadSection('form')">HTML-код форми</li>
-                <li onclick="loadSection('html')">HTML-код</li>
-                <li onclick="loadSection('mainPage')"><b>Головна сторінка WEB-застосунку</b></li>
-                <li onclick="loadSection('mainCode')">Код головної сторінки WEB-застосунку</li>
-                <li onclick="loadSection('conclusions')">Висновки</li>
-            </ul>
-        </div>
+<script>
+const menuItems = {
+  "lab1": [
+    {file: "lab1/lab-1.1.html", name: "Опис предметного середовища"},
+    {file: "lab1/lab-1.2.html", name: "Тема, мета, місце"},
+    {file: "lab1/lab-1.3.html", name: "Структура документа"},
+    {file: "lab1/lab-1.4.html", name: "HTML-код таблиць"},
+    {file: "lab1/lab-1.5.html", name: "HTML-код форми"},
+    {file: "lab1/lab-1.6.html", name: "HTML-код зображення"},
+    {file: "lab1/lab-1.7.html", name: "Висновки"}
+  ],
+  "lab2": [
+    {file: "lab2/lab-2.1.html", name: "Опис предметного середовища"},
+    {file: "lab2/lab-2.2.html", name: "Тема, мета, місце"},
+    {file: "lab2/lab-2.3.html", name: "Висновки"}
+  ],
+  "lab3": [
+    {file: "lab3/lab-3.1.html", name: "Опис предметного середовища"},
+    {file: "lab3/lab-3.2.html", name: "Тема, мета, місце"},
+    {file: "lab3/lab-3.3.html", name: "Висновки"}
+  ],
+  "lab4": [
+    {file: "lab4/lab-4.1.html", name: "Опис предметного середовища"},
+    {file: "lab4/lab-4.2.html", name: "Тема, мета, місце"},
+    {file: "lab4/lab-4.3.html", name: "Висновки"}
+  ],
+  "lab5": [
+    {file: "lab5/lab-5.1.html", name: "Опис предметного середовища"},
+    {file: "lab5/lab-5.2.html", name: "Тема, мета, місце"},
+    {file: "lab5/lab-5.3.html", name: "Висновки"}
+  ],
+  "lab6-7": [
+    {file: "lab6-7/lab-6.1.html", name: "Опис предметного середовища"},
+    {file: "lab6-7/lab-6.2.html", name: "Тема, мета, місце"},
+    {file: "lab6-7/lab-6.3.html", name: "Висновки"}
+  ],
+  "lab8-9": [
+    {file: "lab8-9/lab-8.1.html", name: "Опис предметного середовища"},
+    {file: "lab8-9/lab-8.2.html", name: "Тема, мета, місце"},
+    {file: "lab8-9/lab-8.3.html", name: "Висновки"}
+  ]
+};
 
-        <div class="content" id="content">
-            <h3>Місце виведення інформації</h3>
-            <p>Оберіть лабораторну роботу або пункт меню зліва, щоб переглянути інформацію.</p>
-        </div>
-    </div>
+const topLinks = document.querySelectorAll(".lab-link");
+const sidebar = document.getElementById("sidebar");
+const content = document.getElementById("content");
+let activeSidebarLink = null;
 
-    <script>
-        function loadLab(labNumber) {
-            document.querySelectorAll('.lab-buttons button').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.lab-buttons button')[labNumber-1].classList.add('active');
-            document.getElementById("content").innerHTML = `
-                <h3>Лабораторна робота №${labNumber}</h3>
-                <p>Тут буде зміст лабораторної роботи №${labNumber}.</p>
-            `;
-        }
+function clearActiveTop() {
+  topLinks.forEach(l => l.classList.remove("active-top"));
+}
+function clearActiveSidebar() {
+  const nodes = sidebar.querySelectorAll("a");
+  nodes.forEach(n => n.classList.remove("active-side"));
+  activeSidebarLink = null;
+}
+function buildSidebar(lab) {
+  sidebar.innerHTML = "";
+  const items = menuItems[lab];
+  if (!items) {
+    sidebar.innerHTML = "<div class='sidebar-empty'>Матеріали ще не додані</div>";
+    content.innerHTML = "<div class='content-empty'>Оберіть пункт</div>";
+    return;
+  }
+  items.forEach(it => {
+    const a = document.createElement("a");
+    a.href = "#";
+    a.textContent = it.name;
+    a.dataset.file = it.file;
+    a.addEventListener("click", e => {
+      e.preventDefault();
+      loadContent(it.file);
+      clearActiveSidebar();
+      a.classList.add("active-side");
+      activeSidebarLink = a;
+    });
+    sidebar.appendChild(a);
+  });
+  content.innerHTML = "<div class='content-empty'>Оберіть пункт у меню зліва...</div>";
+}
 
-        function loadSection(section) {
-            const sections = {
-                theme: `
-                    <h3>Тема та мета</h3>
-                    <p><b>Тема:</b> ТЕГИ ТА АТРИБУТИ HTML-ДОКУМЕНТА. СТРУКТУРНА РОЗМІТКА. GIT. GITHUB. РОБОТА З РЕПОЗИТОРІЯМИ. ОПИС ЛОГІКИ ВЛАСНОГО WEB-ЗАСТОСУНКУ.</p>
-                    <p><b>Мета:</b> придбати практичні навички роботи з GitHub, репозиторіями, HTML-документом, таблицями, зображеннями, посиланнями, списками, формами. Створити шаблон звітного HTML-документу для відображення результатів роботи всіх лабораторних робіт.</p>
-                    <p><b>Посилання на виконані завдання:</b></p>
-                    <ul>
-                        <li><a href="https://github.com/stefix66/IC-44_appWEB-BondarenkoIllia-FIOT-2025" target="_blank">Репозиторій власного веб-застосунку (GitHub)</a></li>
-                        <li><a href="https://stefix66.github.io/IC-44_appWEB-BondarenkoIllia-FIOT-2025" target="_blank">Власний веб-застосунок (Жива сторінка)</a></li>
-                        <li><a href="https://github.com/stefix66/IC-44_INDEPENDENT-BondarenkoIllia-FIOT-2025" target="_blank">Репозиторій самостійних робіт (GitHub)</a></li>
-                        <li><a href="https://stefix66.github.io/IC-44_INDEPENDENT-BondarenkoIllia-FIOT-2025" target="_blank">Самостійна робота №1 (Жива сторінка)</a></li>
-                    </ul>
-                `,
-                description: `
-                    <h3>Опис предметного середовища. Бізнес-логіка</h3>
-                    <p>WEB-застосунок «Онлайн-меню піцерії BellaPizza» призначений для ознайомлення відвідувачів із асортиментом піцерії.</p>
-                    <p>Користувач може переглянути доступні піци, напої та закуски, дізнатися їхню ціну та опис, додати обрані страви до кошика або у «Вибране», а також оформити попереднє замовлення через просту форму.</p>
-                `,
-                structure: `
-                    <h3>Структура документа</h3>
-                    <pre>
-📂 img/                
-📄 README.md           
-📄 about.html          
-📄 index.html          
-📄 menu.html           
-📄 project-info.html   
-📄 styles.css          
-                    </pre>
-                `,
-                table: `
-                    <h3>HTML-код таблиці</h3>
-                    <pre>
-&lt;table class="menu-table"&gt;
-  &lt;caption&gt;Меню — популярні піци&lt;/caption&gt;
-  ...
-&lt;/table&gt;
-                    </pre>
-                `,
-                image: "<h3>HTML-код зображення</h3><pre>&lt;img src='photo.jpg' alt='Фото'&gt;</pre>",
-                form: "<h3>HTML-код форми</h3><pre>&lt;form&gt;...&lt;/form&gt;</pre>",
-                html: "<h3>HTML-код</h3><pre>&lt;!DOCTYPE html&gt; ...</pre>",
-                mainPage: "<h3>Головна сторінка WEB-застосунку</h3><p>Опис та скріншот головної сторінки.</p>",
-                mainCode: "<h3>Код головної сторінки WEB-застосунку</h3><pre>&lt;html&gt; ... &lt;/html&gt;</pre>",
-                conclusions: "<h3>Висновки</h3><p>Тут будуть висновки по лабораторній роботі.</p>"
-            };
-            document.getElementById("content").innerHTML = sections[section] || "<p>Розділ у розробці...</p>";
-        }
-    </script>
+function loadContent(path) {
+  fetch(path).then(r => {
+    if (!r.ok) throw new Error("network");
+    return r.text();
+  }).then(html => {
+    content.innerHTML = html;
+    content.focus();
+  }).catch(() => {
+    content.innerHTML = "<div class='content-error'>Не вдалося завантажити файл</div>";
+  });
+}
 
+topLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const lab = link.dataset.lab;
+    clearActiveTop();
+    link.classList.add("active-top");
+    buildSidebar(lab);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const first = document.querySelector('.lab-link[data-lab="lab1"]');
+  if (first) {
+    first.classList.add("active-top");
+    buildSidebar("lab1");
+  }
+});
+</script>
 </body>
 </html>
